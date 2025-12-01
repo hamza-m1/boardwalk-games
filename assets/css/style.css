@@ -95,6 +95,15 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+/* Events */
+
+#student-discount {
+  background-color: var(--highlight-color);
+  color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 /* Game library cards */
 
 #new-games .card,
