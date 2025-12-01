@@ -44,7 +44,11 @@
 
   <body class="d-flex flex-column min-vh-100">
     <!-- Navigation -->
-    <nav id="navbar" class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg fixed-top"
+      data-bs-theme="dark"
+    >
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img
@@ -75,7 +79,7 @@
               <a class="nav-link" href="#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#events">Events</a>
+              <a href="#events" class="nav-link">Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="game-library.html">Games</a>
@@ -278,12 +282,12 @@
           </div>
         </div>
       </section>
-      <!-- Events section -->
       <section id="events" class="container section">
         <div class="row">
-          <div class="col-12 text-center">
-            <h2>Join our events</h2>
+          <div class="col-12">
+            <h2 class="display-6 text-center">Join our events</h2>
           </div>
+
           <div class="col-12 col-xl-6">
             <p>
               Whether you're delving into dungeons, reliving classic games, or
@@ -297,7 +301,7 @@
               Join us anytime to discover new games and meet fellow enthusiasts.
             </p>
           </div>
-          <div class="col-12 col-xl-6 table-responsive">
+          <div class="col-12 col-xl-6">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -328,12 +332,12 @@
                 </tr>
               </tbody>
             </table>
-            <p id="student-discount" class="text-center mb-4">
+            <p class="student-discount text-center">
               *Get 20% off with valid student ID
             </p>
           </div>
           <div class="col-12 text-center">
-            <a href="booking.html" class="btn custom-button-outline"
+            <a href="booking.html" class="btn custom-button-outline my-4"
               >Book now</a
             >
           </div>
@@ -439,5 +443,27 @@
       src="https://kit.fontawesome.com/aa9af45995.js"
       crossorigin="anonymous"
     ></script>
+    <!-- JavaScript code to ensure the Bootstrap mobile navbar collapses when navigating to in-page links -->
+    <script>
+      document
+        .querySelectorAll(".navbar-collapse .nav-link")
+        .forEach((link) => {
+          link.addEventListener("click", function (e) {
+            let section = document.querySelector(e.target.getAttribute("href"));
+            if (section) {
+              e.preventDefault(); // Prevent default anchor click behavior
+              let navbarHeight =
+                document.querySelector(".navbar-toggler").offsetHeight;
+              window.scroll({
+                top: section.offsetTop - navbarHeight, // Adjust for navbar height
+                behavior: "smooth",
+              });
+              document
+                .querySelector(".navbar-collapse")
+                .classList.remove("show"); // Collapse navbar
+            }
+          });
+        });
+    </script>
   </body>
 </html>

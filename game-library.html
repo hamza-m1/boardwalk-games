@@ -44,7 +44,11 @@
 
   <body class="d-flex flex-column min-vh-100">
     <!-- Navigation -->
-    <nav id="navbar" class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg fixed-top"
+      data-bs-theme="dark"
+    >
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img
@@ -73,7 +77,7 @@
               <a class="nav-link" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#events">Events</a>
+              <a href="index.html#events" class="nav-link">Events</a>
             </li>
             <li class="nav-item">
               <a
@@ -347,76 +351,93 @@
           </div>
         </div>
       </section>
-      <section id="reserve-game" class="container section">
+      <section id="reserve-game-form" class="section container mb-5">
         <div class="row justify-content-center">
           <div class="col-12 col-md-8">
-            <h2 class="display-6">Reserve a game</h2>
-            <p class="mb-5">
+            <h2 class="display-6 text-center">Reserve a game</h2>
+            <p>
               Reserve a board game for your next visit to Boardwalk Games. Pick
               your challenge, and let the adventure begin! Fill out your details
               and preferred game below, and we'll have it set aside for you when
               you arrive.
             </p>
+
+            <!-- reserve game form -->
+            <!-- action set on the form to provide users with feedback when the form has been submitted.
+                            We have not learned how to handle form data yet, so the form data is not actually sent anywhere for this project -->
             <form action="success.html" method="GET">
               <div class="row">
-                <div class="col-12 col-xl-4 mb-3">
-                  <label for="rName" class="form-label">Full Name</label>
+                <div class="col-12 col-lg-4 mb-3">
+                  <label for="full-name" class="form-label">Full name</label>
                   <input
-                    class="form-control"
-                    id="rName"
-                    name="fullName"
+                    id="full-name"
                     type="text"
+                    class="form-control"
+                    name="full-name"
                     required
                   />
                 </div>
-                <div class="col-12 col-xl-4 mb-3">
-                  <label for="rPhone" class="form-label">Phone number</label>
+                <div class="col-12 col-lg-4 mb-3">
+                  <label for="phone-number" class="form-label"
+                    >Phone number</label
+                  >
                   <input
-                    class="form-control"
-                    id="rPhone"
-                    name="phone"
+                    id="phone-number"
                     type="number"
-                    required
-                  />
-                </div>
-                <div class="col-12 col-xl-4 mb-3">
-                  <label for="rEmail" class="form-label">Email address</label>
-                  <input
                     class="form-control"
-                    id="rEmail"
-                    name="email"
-                    type="email"
+                    name="phone-number"
                     required
                   />
                 </div>
-                <div class="col-12 col-xl-8 mb-3">
-                  <label for="rGame" class="form-label">Select game</label>
-                  <select id="rGame" class="form-select" name="game" required>
+                <div class="col-12 col-lg-4 mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-lg-8 mb-3">
+                  <label for="game-selection" class="form-label"
+                    >Select game</label
+                  >
+                  <select
+                    id="game-selection"
+                    class="form-select"
+                    name="game-selection"
+                    required
+                  >
+                    <!-- value="" makes this option a placeholder and won't be accepted as a valid selection, 
+                                                ensuring the required attribute on the <select> element works -->
                     <option value="" selected>Select game</option>
-                    <option value="Galaxy Pioneers">Galaxy Pioneers</option>
-                    <option value="Mystic Woods">Mystic Woods</option>
-                    <option value="Captain's Gambit">Captain's Gambit</option>
-                    <option value="Critter Quest">Critter Quest</option>
-                    <option value="Setters of Catan">Setters of Catan</option>
-                    <option value="Monopoly">Monopoly</option>
-                    <option value="Exploding Kittens">Exploding Kittens</option>
-                    <option value="Cluedo">Cluedo</option>
+                    <option value="galaxy-pioneers">Galaxy Pioneers</option>
+                    <option value="mystic-woods">Mystic Woods</option>
+                    <option value="captains-gambit">Captain's Gambit</option>
+                    <option value="critter-quest">Critter Quest</option>
+                    <option value="setters-of-catan">Settlers of Catan</option>
+                    <option value="monopoly">Monopoly</option>
+                    <option value="exploding-kittens">Exploding Kittens</option>
+                    <option value="cluedo">Cluedo</option>
                   </select>
                 </div>
-                <div class="col-12 col-xl-4 mb-3">
-                  <label for="rDate" class="form-label">Requested date</label>
+                <div class="col-12 col-lg-4 mb-3">
+                  <label for="date" class="form-label">Requested date</label>
                   <input
-                    class="form-control"
-                    id="rDate"
-                    name="date"
+                    id="date"
                     type="date"
+                    class="form-control"
+                    name="date"
                     required
                   />
                 </div>
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn custom-button-outline mt-3">
+                    Submit
+                  </button>
+                </div>
               </div>
-              <button type="submit" class="btn custom-button-outline mt-3">
-                Submit
-              </button>
             </form>
           </div>
         </div>
